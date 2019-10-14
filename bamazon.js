@@ -53,12 +53,17 @@ var makeTable = function(){
                             (res[id].stockquanity-answer.quant)+"'WHERE productname='"+
                             product+"'", function(err,res2){
                                 console.log("Product Bought!");
+                                makeTable();
                             })
                         } else {
                             console.log("Not a valid selection!");
                             promptCustomer(res);
                         }
                     })
+                }
+                if(i==res.length && correct==false){
+                    console.log("Not a valid selection!");
+                    promptCustomer(res);
                 }
             }
         })
